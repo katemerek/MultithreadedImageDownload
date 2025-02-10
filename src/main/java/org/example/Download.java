@@ -6,20 +6,14 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
-import java.util.Iterator;
 
 public class Download {
-    private DataUrls dataUrls;
-
-    public Download(DataUrls dataUrls) {//передаем текущий экземпляр класса, НЕ создаем новый
-        this.dataUrls = dataUrls;
-    }
 
     public void downloadPicture(Integer index) throws IOException {
         String pictureName, currentUrl;
         FileOutputStream fileOS;
 
-        currentUrl = this.dataUrls.urls.get(index);//один и тот же индекс
+        currentUrl = DataUrls.getUrls().get(index);
         pictureName = "kotik" + index + ".jpeg";
         InputStream inputStream = new URL(currentUrl).openStream();
         try {
@@ -29,5 +23,4 @@ public class Download {
             throw new RuntimeException(e);
         }
     }
-
 }
