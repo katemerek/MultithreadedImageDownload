@@ -12,8 +12,8 @@ public final class DataUrls {
     private static List<String> urls = new ArrayList <> ();
 
     public static List<String> getUrls() {
-        String fileName = "/Users/User/Desktop/CatsUrls.txt";
-        try (BufferedReader br = Files.newBufferedReader(Paths.get(fileName))) {
+        String fileLocation = "/Users/User/Desktop/CatsUrls.txt";
+        try (BufferedReader br = Files.newBufferedReader(Paths.get(fileLocation))) {
             urls = br.lines().collect(Collectors.toList());
         } catch (IOException e) {
             e.printStackTrace();

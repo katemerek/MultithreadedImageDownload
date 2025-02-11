@@ -5,7 +5,6 @@ import java.time.LocalTime;
 
 public class Task implements Runnable {
     private Integer index;
-    private Download download;
 
     public Task(Integer index) {
         this.index = index;
@@ -17,6 +16,7 @@ public class Task implements Runnable {
         LocalTime now = LocalTime.now();
         System.out.println("Task " + index + " Time: " + now + " Thread: " + Thread.currentThread().getName());
         try {
+            Download download = new Download();
             download.downloadPicture(index);
         } catch (IOException e) {
             throw new RuntimeException(e);
